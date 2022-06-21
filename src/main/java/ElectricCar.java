@@ -6,10 +6,10 @@ public class ElectricCar extends Vehicle {
     ElectricCar electricCar;
     
     
-    public ElectricCar(Engine engine, Wheels wheels, Doors doors, Seats seats, String colour, double price, double chargingTime, int chargeLevel) {
+    public ElectricCar(Engine engine, Wheels wheels, Doors doors, Seats seats, String colour, double price, double chargingTime) {
         super(engine, wheels, doors, seats, colour, price);
-        this.chargeLevel = chargeLevel;
         this.chargingTime = chargingTime;
+        this.chargeLevel = 100;
     }
     
     public double getChargingTime() {
