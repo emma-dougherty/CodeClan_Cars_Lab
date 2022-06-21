@@ -21,4 +21,9 @@ public class Customer {
     public void addCarToOwnedVehicles(Vehicle vehicle){
         ownedVehicles.add(vehicle);
     }
+
+    public void buyCar(Vehicle vehicle) {
+        ownedVehicles.add(vehicle);
+        this.money -= vehicle.getPrice();
+    }
 }

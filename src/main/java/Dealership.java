@@ -17,4 +17,12 @@ public class Dealership {
     public double getTill() {
         return till;
     }
+
+    public void sellCar(Vehicle carToSell, Customer customer) {
+        vehiclesOnSale.remove(vehiclesOnSale.indexOf(carToSell));
+        this.till += carToSell.getPrice();
+
+        customer.buyCar(carToSell);
+
+    }
 }

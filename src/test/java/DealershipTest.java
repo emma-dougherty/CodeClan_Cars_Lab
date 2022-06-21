@@ -16,6 +16,7 @@ public class DealershipTest {
     ElectricCar electricCar;
     SportsCar sportsCar;
     ArrayList<Vehicle> listOfCars;
+    Customer customer;
 
     @Before
     public void before(){
@@ -33,6 +34,8 @@ public class DealershipTest {
         listOfCars.add(electricCar);
         listOfCars.add(sportsCar);
 
+        customer = new Customer(30000.00);
+
         dealership = new Dealership(listOfCars, 100000.00);
     }
 
@@ -44,6 +47,17 @@ public class DealershipTest {
     @Test
     public void hasTill(){
         assertEquals(100000, dealership.getTill(), 0.00);
+    }
+
+    @Test
+    public void canSellCar(){
+        Vehicle carToSell = dealership.getVehiclesOnSale().get(0);
+        dealership.sellCar(carToSell, customer);
+        assertEquals(1, dealership.getVehiclesOnSale().size());
+        assertEquals(120000.00, dealership.getTill(), 0.00);
+        assertEquals(10000, customer.getMoney(), 0.00);
+        assertEquals(1, customer.getOwnedVehicles().size());
+
     }
 
 }

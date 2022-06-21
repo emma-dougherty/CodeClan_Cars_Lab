@@ -38,4 +38,11 @@ public class CustomerTest {
         customer.addCarToOwnedVehicles(electricCar);
         assertEquals(1, customer.getOwnedVehicles().size());
     }
+
+    @Test
+    public void canBuyVehicle(){
+        customer.buyCar(electricCar);
+        assertEquals(1, customer.getOwnedVehicles().size());
+        assertEquals(10000.00, customer.getMoney(), 0.00);
+    }
 }
